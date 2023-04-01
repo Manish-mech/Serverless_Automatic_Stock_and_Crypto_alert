@@ -1,0 +1,8 @@
+# These are the library required do install in a deployment package.
+# Compress the package and upload in Lambda layer, to use necessary library.
+
+boto3
+time
+Decimal
+yahoo_fin
+json
