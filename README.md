@@ -76,9 +76,10 @@ def lambda_handler(event, context):  # Define the AWS Lambda function
     fav_stocks = {}  # Create an empty dictionary to store the stock prices
     for symbol in tickers:  # Loop through the list of tickers
         price = get_live_price(symbol)  # Get the current price for each stock
-        fav_stocks[symbol] = round(price, 2)  # Store the price in the dictionary, rounded to two decimal places
+        fav_stocks[symbol] = round(price, 2)  # Store the price in the dictionary, rounded to two decimal.
 
-    ddb_data = json.loads(json.dumps(fav_stocks),parse_float=decimal.Decimal)  # Convert the prices to Decimal values for storage in DynamoDB
+    ddb_data = json.loads(json.dumps(fav_stocks),parse_float=decimal.Decimal)
+    # Convert the prices to Decimal values for storage in DynamoDB
 
     for key in ddb_data:  # Loop through the dictionary of stock prices
         response = table.put_item(  # Insert the data into DynamoDB
