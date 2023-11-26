@@ -7,7 +7,7 @@ Market volatility can make it difficult to keep track of your favorite stocks an
 
 
 ## AWS architecture
-![Project architecture](https://monkheart.s3.ap-south-1.amazonaws.com/Github/project.jpg)
+![Project architecture](https://s3.ap-northeast-1.amazonaws.com/motulaal.io/Crypto+share+monitor/project+png.png)
 
 
 ## Features
@@ -42,22 +42,20 @@ Market volatility can make it difficult to keep track of your favorite stocks an
 - AWS SES (Simple Email Service)
 - Python
 ## 
-##  
 ## CloudWatch Event triger :
 CloudWatch Events trigger an SQS service at regular intervals.
 
 
-![CloudWatch Event ](https://monkheart.s3.ap-south-1.amazonaws.com/Github/cloudWatch.png)
+![CloudWatch Event ](https://s3.ap-northeast-1.amazonaws.com/motulaal.io/Crypto+share+monitor/cloudWatch.png)
 ## 
-## 
+
 ## Lambda Stock_api
 The SQS service generates a query message, which invokes a Lambda function.
-![Stock_api](https://monkheart.s3.ap-south-1.amazonaws.com/Github/stock_api.png)
-## 
+![Stock_api](https://s3.ap-northeast-1.amazonaws.com/motulaal.io/Crypto+share+monitor/stock_api.png)
 ## 
 ## Code for live data collection :
 
-To run this code, we need to upload a deployement package in lambda layer. This package include all the necessary libraries which is used by python to perform the task.
+To run this code, we need to upload a deployement package in the lambda layer. This package includes all the necessary libraries which is used by Python to perform the task.
 
 ```python
 import boto3  # Import the boto3 library to interact with AWS services
@@ -100,19 +98,14 @@ def lambda_handler(event, context):  # Define the AWS Lambda function
 
 This code will get the live data from yahoo finance and will store the price for given ticker into the DynamoDB table mentioned.
 ## 
-## 
 ## DynamoDB
 The data is automatically stored in a DynamoDB database.
 
-![DynamoDB](https://monkheart.s3.ap-south-1.amazonaws.com/Github/DynamoDb.png)
-## 
-## 
-## Lambda stream
+![DynamoDB](https://s3.ap-northeast-1.amazonaws.com/motulaal.io/Crypto+share+monitor/DynamoDb.png)
+
+## Lambda Calculation
 New data in the database triggers another Lambda function using DynamoDB streams.
 
-![DynamoDB](https://monkheart.s3.ap-south-1.amazonaws.com/Github/stream.png)
-## 
-## 
 ## Code for calculation :
 
 ```python
@@ -240,15 +233,14 @@ def lambda_handler(event, context):
 This code will calculate the changes, if the calculated change in price is exceed the Threshold, it will email the user.
 
 ## 
-## 
 ## Triggered E-mail
 
 ### E-mail 1
-![Email 1](https://monkheart.s3.ap-south-1.amazonaws.com/Github/proof+2.png)
+![Email 1](https://s3.ap-northeast-1.amazonaws.com/motulaal.io/Crypto+share+monitor/proof+1.png)
 
 ### E-mail 2
 
-![Email 2](https://monkheart.s3.ap-south-1.amazonaws.com/Github/proof+2.png)
+![Email 2](https://s3.ap-northeast-1.amazonaws.com/motulaal.io/Crypto+share+monitor/proof+2.png)
 
 
 
